@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>0-Basics</title>
+	<style>
+		#charts, #charts-svg{
+			margin:100px auto;
+			width:700px;
+			text-align: center;
+		}
+		.bar{
+			width:15px;
+			height: 90px;
+			background-color: #4ACC83;
+			display:inline-block;
+			margin-right:5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="charts"></div>
+	<div id="charts-svg"></div>
+	<script src="d3.v3.min.js"></script>
+	<script>
+		var dataset = [6, 14, 7, 3, 19, 21, 10];
+
+		// div based
+		d3.select('#charts')
+		.selectAll('div')
+		.data(dataset)
+		.enter()
+		.append('div')
+		.attr('class', 'bar')
+		.style('height', function(d) {
+			return (d*5)+'px';
+		});
+
+		// SVG based
+		var w = 700, h = 100;
+		var svg = d3.select("#charts-svg")
+		.append('svg')
+		.attr('width', w)
+		.attr('height', h);
+
+		svg.selectAll('rect')
+		.data(dataset)
+		.enter()
+		.append('rect')
+		.attr('width', 15)
+		.attr('height', function(d){
+			return (d*5);
+		})
+		.attr('fill', '#4ACC83')
+		.attr('y', function(d) {
+			return h - (d*5);
+		})
+		.attr('x', function(d, i){
+			return i * 20;
+		});
+	</script>
+</body>
+</html>
