@@ -5,4 +5,5 @@ D3 experiments
 
 ![Basics](https://github.com/anshad/d3-kitchen/raw/master/screens/0-basics.png "Basic bar chart")
 
-- Scaling Basics
+- Scaling Basics (linear scale, rangebands)
+- Color scale
