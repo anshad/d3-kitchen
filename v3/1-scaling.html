@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>1-Scaling</title>
+	<style>
+		#charts-svg{
+			margin:100px auto;
+			width:700px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="charts-svg"></div>
+	<script src="d3.v3.min.js"></script>
+	<script>
+		var dataset = [6, 14, 7, 3, 19, 21, 10];
+
+		var w = 700, h = 100;
+
+		var yScale = d3.scale.linear()
+		.domain([0, d3.max(dataset)])
+		.range([0, h]);
+
+		var svg = d3.select("#charts-svg")
+		.append('svg')
+		.attr('width', w)
+		.attr('height', h);
+
+		svg.selectAll('rect')
+		.data(dataset)
+		.enter()
+		.append('rect')
+		.attr('width', 15)
+		.attr('height', function(d){
+			return yScale(d);
+		})
+		.attr('x', function(d, i){
+			return i * 20;
+		})
+		.attr('y', function(d) {
+			return h - yScale(d);
+		})
+		.attr('fill', '#4ACC83');
+	</script>
+</body>
+</html>
