@@ -7,3 +7,5 @@ D3 experiments
 
 - Scaling Basics (linear scale, rangebands)
 - Color scale
+
+![Color Scale](https://github.com/anshad/d3-kitchen/raw/master/screens/3-color-scale.png "Color Scale")
